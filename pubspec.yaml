@@ -1,0 +1,6 @@
+name: papaya
+version: 0.0.1-dev
+author: Nicolas François
+description: Commons librarie inspired by Guava
+dev_dependencies:
+  unittest: any
