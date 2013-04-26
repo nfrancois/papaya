@@ -4,55 +4,42 @@ import 'package:unittest/unittest.dart';
 main(){
   group('Hashcode', () {
     test('Null object have hashcode 0', () {
-      int hashcode = Objects.hashcode(null);
-      expect(hashcode, 0);
+      expect(hashcode(null), 0);
     });  
     test('Empty object have hashcode 0', () {
-      int hashcode = Objects.hashcode([]);
-      expect(hashcode, 0);
+      expect(hashcode([]), 0);
     });    
     test('Should have hascode', () {
-      int hashcode = Objects.hashcode(["Hello"]);
-      expect(hashcode, isNotNull);
+      expect(hashcode(["Hello", "world"]), isNotNull);
     });
     test('Should have same hascode', () {
-      int hashcode1 = Objects.hashcode(["Hello", "world"]);
-      int hashcode2 = Objects.hashcode(["Hello", "world"]);
-      expect(hashcode1, isNotNull);
-      expect(hashcode2, isNotNull);
-      expect(hashcode1, equals(hashcode2));
+      expect(hashcode(["Hello", "world"]), hashcode(["Hello", "world"]));
     });  
     test('Should have specific hascode', () {
-      int hashcode = Objects.hashcode(["Hello", "World"]);
-      expect(hashcode, isNotNull);
-      expect(hashcode, equals(26697196704));
+      expect(hashcode(["Hello", "world"]), equals(25951847737));
     });
     test('Null is a field value', () {
-      expect(Objects.hashcode([1, 2, null]),  isNot(equals(Objects.hashcode([1, 2]))));
+      expect(hashcode([1, 2, null]),  isNot(equals(hashcode([1, 2]))));
     });
    test('Not distributif', (){
-     expect(Objects.hashcode([1, 2, 3]), isNot(equals(Objects.hashcode([2, 3, 1])))); 
+     expect(hashcode([1, 2, 3]), isNot(equals(hashcode([2, 3, 1])))); 
    });
   });
   
   group('Eauals', () {
     test('Null objects are equals', () {
-      bool result = Objects.equal(null, null);
-      expect(result, isTrue);
+      expect(equal(null, null), isTrue);
     });
     test('Object cannot be equals to nul', () {
-      bool result1 = Objects.equal("Hello", null);
-      bool result2 = Objects.equal(null, "Hello");
-      expect(result1, isFalse);
-      expect(result2, isFalse);
+      expect(equal("Hello", null), isFalse);
+      expect(equal(null, "Hello"), isFalse);
     });
     test('Are equals', () {
-      bool result = Objects.equal("Hello", "Hello");
+      bool result = equal("Hello", "Hello");
       expect(result, isTrue);
     }); 
     test('Are be different', () {
-      bool result = Objects.equal("Hello", "hello");
-      expect(result, isFalse);
+      expect(equal("Hello", "hello"), isFalse);
     }); 
   });
   
@@ -77,6 +64,6 @@ class Dummy {
   
   Dummy(this.first, this.second);
   
-  String toString() => Objects.toStringHelper("Dummy").add("first", first).add("second", second).toString();   
+  String toString() => toStringHelper("Dummy").add("first", first).add("second", second).toString();   
   
 }
