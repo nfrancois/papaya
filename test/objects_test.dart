@@ -27,6 +27,12 @@ main(){
       expect(hashcode, isNotNull);
       expect(hashcode, equals(26697196704));
     });
+    test('Null is a field value', () {
+      expect(Objects.hashcode([1, 2, null]),  isNot(equals(Objects.hashcode([1, 2]))));
+    });
+   test('Not distributif', (){
+     expect(Objects.hashcode([1, 2, 3]), isNot(equals(Objects.hashcode([2, 3, 1])))); 
+   });
   });
   
   group('Eauals', () {
