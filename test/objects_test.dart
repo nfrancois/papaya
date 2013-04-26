@@ -35,8 +35,7 @@ main(){
       expect(equal(null, "Hello"), isFalse);
     });
     test('Are equals', () {
-      bool result = equal("Hello", "Hello");
-      expect(result, isTrue);
+      expect(equal("Hello", "Hello"), isTrue);
     }); 
     test('Are be different', () {
       expect(equal("Hello", "hello"), isFalse);
@@ -52,6 +51,10 @@ main(){
      var dummy = new Dummy(null, 2);
      expect(dummy.toString(), equals("Dummy{first=null, second=2}"));
    });
+   test('toString on dummy object with  ommiting null value', (){
+     var crazy = new Crazy(null, 2);
+     expect(crazy.toString(), equals("Crazy{second=2}"));
+   });   
   });
   
   
@@ -65,5 +68,17 @@ class Dummy {
   Dummy(this.first, this.second);
   
   String toString() => toStringHelper("Dummy").add("first", first).add("second", second).toString();   
+  
+}
+
+
+class Crazy {
+  
+  String first;
+  int second;
+  
+  Crazy(this.first, this.second);
+  
+  String toString() => toStringHelper("Crazy").omitNullValues().add("first", first).add("second", second).toString();   
   
 }
