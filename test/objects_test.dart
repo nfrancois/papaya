@@ -56,6 +56,27 @@ main(){
     }); 
   });
   
+  group('toString', () {
+   test('toString on dummy object', (){
+     var dummy = new Dummy("Hello", 2);
+     expect(dummy.toString(), equals("Dummy{first=Hello, second=2}"));
+   });
+   test('toString on dummy object with null value', (){
+     var dummy = new Dummy(null, 2);
+     expect(dummy.toString(), equals("Dummy{first=null, second=2}"));
+   });
+  });
+  
   
 }
 
+class Dummy {
+  
+  String first;
+  int second;
+  
+  Dummy(this.first, this.second);
+  
+  String toString() => Objects.toStringHelper("Dummy").add("first", first).add("second", second).toString();   
+  
+}

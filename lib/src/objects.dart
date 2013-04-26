@@ -1,6 +1,5 @@
 part of dart_commons;
 
-
 class Objects {
   
   static int hashcode(List<Object> fields) =>
@@ -9,6 +8,32 @@ class Objects {
   
   static bool equal(Object a, Object b) => a == b || (a != null && a == b);
   
+  static ToStringHelper toStringHelper(String objectName) => new ToStringHelper(objectName);
+  
 }
 
+class ToStringHelper {
 
+  final String objectName;
+  final LinkedHashMap<String, dynamic> _valueHolders;
+  
+  ToStringHelper(this.objectName) : _valueHolders = new LinkedHashMap();
+  
+  ToStringHelper add(String name, var value) {
+    _valueHolders[name] = value;
+    return this;
+  }
+  
+  String toString(){
+    var buffer = new StringBuffer("$objectName{");
+    var first = true;
+    _valueHolders.forEach((String key, value) {
+      first? first = false : buffer.write(", ");
+      buffer.write("$key=$value");
+    });
+    buffer.write("}");
+    return buffer.toString();
+  }
+ 
+  
+}
