@@ -11,7 +11,7 @@ main() {
   // toString
   print(john.toString());
   print(unknown.toString());
-  print(unknown.alternativetoString());
+  print(unknown.alternativeToString());
   
   // equals
   print(john == unknown);
@@ -35,6 +35,7 @@ class Person {
   
   String toString() => toStringHelper("Person").add("name", name).add("age", age).toString();
   
-  String alternativetoString() => toStringHelper("Person").omitNullValues().add("name", name).add("age", age).toString();
+  String alternativeToString() => 
+    toStringHelper("Person").omitNullValues().add("name", name).add("age", age).toString();
   
 }

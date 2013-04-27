@@ -2,9 +2,9 @@
 
 ![Papaya](papaya.jpg)
 
-Papaya is a commons librairies for Dart inspired (very) by Guava.
+Papaya is a commons librairies for Dart inspired a lot by Guava.
 It provides help to write :
-- hashcode / equals / toString methods
+- hashCode / == / toString methods
 
 
 [![Build Status](https://drone.io/github.com/nfrancois/papaya/status.png)](https://drone.io/github.com/nfrancois/papaya/latest)
@@ -13,11 +13,8 @@ Papaya is distributed under the Apache 2.0 License.
 
 
 ## Getting Started
----
 
 Create a Dart project and add a **pubspec.yaml** file to it
-
-#### pub.dartlang.org
 
 ```
 dependencies:
@@ -31,8 +28,8 @@ pub install
 ```
 
 ## Samples
----
 
+### hashCode / == / toString methods
 
 ```dart
 import 'package:papaya/papaya.dart';
@@ -48,7 +45,7 @@ main() {
   // toString
   print(john.toString());
   print(unknown.toString());
-  print(unknown.alternativetoString());
+  print(unknown.alternativeToString());
   
   // equals
   print(john == unknown);
@@ -70,7 +67,8 @@ class Person {
   
   String toString() => toStringHelper("Person").add("name", name).add("age", age).toString();
   
-  String alternativeToString() => toStringHelper("Person").omitNullValues().add("name", name).add("age", age).toString();
+  String alternativeToString() => 
+    toStringHelper("Person").omitNullValues().add("name", name).add("age", age).toString();
   
 }
 ```
