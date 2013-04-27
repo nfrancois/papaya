@@ -1,6 +1,6 @@
 #Papaya
 
-![Papaya](papaya.jpg)
+![Papaya](https://raw.github.com/nfrancois/papaya/master/papaya.jpg)
 
 Papaya is a commons librairies for Dart inspired a lot by Guava.
 It provides help to write :
