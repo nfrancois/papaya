@@ -7,20 +7,21 @@ It provides help to write :
 - hashcode / equals / toString methods
 
 
-[![](https://drone.io/nfrancois/papaya/status.png)](https://drone.io/nfrancois/papaya/latest)
+[![Build Status](https://drone.io/github.com/nfrancois/papaya/status.png)](https://drone.io/github.com/nfrancois/papaya/latest)
 
 Papaya is distributed under the Apache 2.0 License.
 
 
 ## Getting Started
----------------
+---
+
 Create a Dart project and add a **pubspec.yaml** file to it
 
 #### pub.dartlang.org
 
 ```
 dependencies:
-  papya: any
+  papaya: any
 ```
 
 and run
@@ -30,7 +31,8 @@ pub install
 ```
 
 ## Samples
----------------
+---
+
 
 ```dart
 import 'package:papaya/papaya.dart';
@@ -68,7 +70,7 @@ class Person {
   
   String toString() => toStringHelper("Person").add("name", name).add("age", age).toString();
   
-  String alternativetoString() => toStringHelper("Person").omitNullValues().add("name", name).add("age", age).toString();
+  String alternativeToString() => toStringHelper("Person").omitNullValues().add("name", name).add("age", age).toString();
   
 }
 ```
