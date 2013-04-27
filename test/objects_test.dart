@@ -23,7 +23,7 @@ main(){
     test('Null is a field value', () {
       expect(hashcode([1, 2, null]),  isNot(equals(hashcode([1, 2]))));
     });
-   test('Not distributif', (){
+   test('Not associative', (){
      expect(hashcode([1, 2, 3]), isNot(equals(hashcode([2, 3, 1])))); 
    });
   });
