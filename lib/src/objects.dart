@@ -1,5 +1,7 @@
 part of dart_commons;
 
+//Copyright (C) 2013 Nicolas François. All Rights Reserved.
+
 /**
  * Generates a hash code for multiple values.
 *

@@ -1,6 +1,8 @@
 import 'package:papaya/papaya.dart';
 import 'package:unittest/unittest.dart';
 
+//Copyright (C) 2013 Nicolas François. All Rights Reserved.
+
 main(){
   group('Hashcode', () {
     test('Null object have hashcode 0', () {
