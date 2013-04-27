@@ -31,42 +31,42 @@
 <h3>Functions</h3>
 <div class="method"><h4 id="toStringHelper">
 <button class="show-code">Code</button>
-<a href="papaya/ToStringHelper.html">ToStringHelper</a> <strong>toStringHelper</strong>(String className) <a class="anchor-link" href="#toStringHelper"
+<a href="papaya/ToStringHelper.html">ToStringHelper</a> <strong>toStringHelper</strong>(Type runtimeType) <a class="anchor-link" href="#toStringHelper"
               title="Permalink to toStringHelper">#</a></h4>
 <div class="doc">
 <p>Creates an instance of <a class="crossref" href="papaya/ToStringHelper.html">ToStringHelper</a>.</p><p>This is helpful for implementing toString().
 Specification by example:
 <pre>
   // Returns "ClassName{}"
-  toStringHelper("ClassName")
+  toStringHelper(this.runtimeType)
    .toString();
 </pre><pre>
   // Returns "ClassName{x=1}"
-  toStringHelper("ClassName"
+  toStringHelper(this.runtimeType)
    .add("x", 1)
    .toString();
 </pre><pre>
   // Returns "MyObject{x=1}"
-  toStringHelper("MyObject")
+  toStringHelper(this.runtimeType)
    .add("x", 1)
    .toString();
 </pre><pre>
   // Returns "ClassName{x=1, y=foo}"
-  toStringHelper("ClassName")
+  toStringHelper(this.runtimeType)
    .add("x", 1)
    .add("y", "foo")
    .toString();
 </pre><pre>
   // Returns "ClassName{x=1}"
-  toStringHelper("ClassName")
+  toStringHelper(this.runtimeType)
    .omitNullValues().add("x", 1)
    .add("y", null)
    .toString();
 </pre>
 <p>
-<span class="param">className</span> the object class name</p>
+<span class="param">runtimeType</span> the object type</p>
 <pre class="source">
-ToStringHelper toStringHelper(String className) =&gt; new ToStringHelper(className);
+ToStringHelper toStringHelper(Type runtimeType) =&gt; new ToStringHelper(runtimeType);
 </pre>
 </div>
 </div>
@@ -118,7 +118,7 @@ int hashcode(List&lt;Object&gt; fields) =&gt;
         <div class="clear"></div>
         </div>
         <div class="footer">
-          <div>This page was generated at 2013-04-27 19:07:27.276</div>
+          <div>This page was generated at 2013-04-27 19:57:46.878</div>
         </div>
         <script async src="client-live-nav.js"></script>
         </body></html>

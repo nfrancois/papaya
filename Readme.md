@@ -65,10 +65,10 @@ class Person {
     return equal(name, other.name) && equal(age, other.name);
   }
   
-  String toString() => toStringHelper("Person").add("name", name).add("age", age).toString();
+  String toString() => toStringHelper(this.runtimeType).add("name", name).add("age", age).toString();
   
   String alternativeToString() => 
-    toStringHelper("Person").omitNullValues().add("name", name).add("age", age).toString();
+    toStringHelper(this.runtimeType).omitNullValues().add("name", name).add("age", age).toString();
   
 }
 ```

@@ -36,14 +36,14 @@
 <pre class="source">
 class ToStringHelper {
 
- final String className;
+ final Type runtimeType;
  final LinkedHashMap&lt;String, dynamic&gt; _valueHolders;
  bool _omitNullValues = false;
 
  /**
-  * Use [toStringHelper(className)] method instead of this constructor.
+  * Use [toStringHelper(runtimeType)] static method instead of this constructor.
   */
- ToStringHelper(this.className) : _valueHolders = new LinkedHashMap();
+ ToStringHelper(this.runtimeType) : _valueHolders = new LinkedHashMap();
 
  /**
   * Configures the [ToStringHelper] so toString() will ignore
@@ -64,7 +64,7 @@ class ToStringHelper {
  }
  
  /**
-  * Returns a string in the format specified by [toStringHelper(className)].
+  * Returns a string in the format specified by [toStringHelper(runtimeType)].
  *
   * &lt;p&gt;After calling this method, you can keep adding more properties to later
   * call toString() again and get a more complete representation of the
@@ -73,7 +73,7 @@ class ToStringHelper {
   * properties (multiple name/value pairs with the same name can be added).
   */  
  String toString(){
-   var buffer = new StringBuffer("$className{");
+   var buffer = new StringBuffer("$runtimeType{");
    var first = true;
    _valueHolders.forEach((String key, value) {
      if(!_omitNullValues || (_omitNullValues &amp;&amp; value != null)){
@@ -93,27 +93,30 @@ class ToStringHelper {
 <h3>Constructors</h3>
 <div class="method"><h4 id="ToStringHelper">
 <button class="show-code">Code</button>
-new <strong>ToStringHelper</strong>(String className) <a class="anchor-link" href="#ToStringHelper"
+new <strong>ToStringHelper</strong>(Type runtimeType) <a class="anchor-link" href="#ToStringHelper"
               title="Permalink to ToStringHelper.ToStringHelper">#</a></h4>
 <div class="doc">
-<p>Use <code>toStringHelper(className)</code> method instead of this constructor.</p>
+<p>Use <code>toStringHelper(runtimeType)</code> static method instead of this constructor.</p>
 <pre class="source">
-ToStringHelper(this.className) : _valueHolders = new LinkedHashMap();
+ToStringHelper(this.runtimeType) : _valueHolders = new LinkedHashMap();
 </pre>
 </div>
 </div>
 </div>
 <div>
 <h3>Properties</h3>
-<div class="field"><h4 id="className">
+<div class="field"><h4 id="runtimeType">
 <button class="show-code">Code</button>
-final String         <strong>className</strong> <a class="anchor-link"
-            href="#className"
-            title="Permalink to ToStringHelper.className">#</a>
+final Type         <strong>runtimeType</strong> <a class="anchor-link"
+            href="#runtimeType"
+            title="Permalink to ToStringHelper.runtimeType">#</a>
         </h4>
         <div class="doc">
+<div class="inherited">
+<p>A representation of the runtime type of the object.</p>
+<div class="docs-inherited-from">docs inherited from Object </div></div>
 <pre class="source">
-final String className
+final Type runtimeType
 </pre>
 </div>
 </div>
@@ -155,14 +158,14 @@ ToStringHelper omitNullValues() {
 String <strong>toString</strong>() <a class="anchor-link" href="#toString"
               title="Permalink to ToStringHelper.toString">#</a></h4>
 <div class="doc">
-<p>Returns a string in the format specified by <code>toStringHelper(className)</code>.</p><p>After calling this method, you can keep adding more properties to later
+<p>Returns a string in the format specified by <code>toStringHelper(runtimeType)</code>.</p><p>After calling this method, you can keep adding more properties to later
 call toString() again and get a more complete representation of the
 same object; but properties cannot be removed, so this only allows
 limited reuse of the helper instance. The helper allows duplication of
 properties (multiple name/value pairs with the same name can be added).
 <pre class="source">
 String toString(){
- var buffer = new StringBuffer("$className{");
+ var buffer = new StringBuffer("$runtimeType{");
  var first = true;
  _valueHolders.forEach((String key, value) {
    if(!_omitNullValues || (_omitNullValues &amp;&amp; value != null)){
@@ -181,7 +184,7 @@ String toString(){
         <div class="clear"></div>
         </div>
         <div class="footer">
-          <div>This page was generated at 2013-04-27 19:07:27.291</div>
+          <div>This page was generated at 2013-04-27 19:57:46.894</div>
         </div>
         <script async src="../client-live-nav.js"></script>
         </body></html>

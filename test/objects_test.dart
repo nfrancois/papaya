@@ -69,7 +69,7 @@ class Dummy {
   
   Dummy(this.first, this.second);
   
-  String toString() => toStringHelper("Dummy").add("first", first).add("second", second).toString();   
+  String toString() => toStringHelper(this.runtimeType).add("first", first).add("second", second).toString();   
   
 }
 
@@ -81,6 +81,6 @@ class Crazy {
   
   Crazy(this.first, this.second);
   
-  String toString() => toStringHelper("Crazy").omitNullValues().add("first", first).add("second", second).toString();   
+  String toString() => toStringHelper(this.runtimeType).omitNullValues().add("first", first).add("second", second).toString();   
   
 }

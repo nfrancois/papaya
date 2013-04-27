@@ -4,13 +4,13 @@ part of papaya;
 
 /**
  * Generates a hash code for multiple values.
-*
+ *
  * <p>This is useful for implementing [Object#hashCode()]. For example,
  * in an object that has three properties : x, y, z, one could write:
  * <pre>
  * int hashCode() => hashcode([x, y, z]);
  * </pre>
-*
+ *
  * <b>Warning</b>: When a single object is supplied, the returned hash code
  * does not equal the hash code of that object.
  */
@@ -19,7 +19,7 @@ int hashcode(List<Object> fields) =>
   
 /**
  * Determines whether two possibly-null objects are equal. Returns:
-*
+ *
  * <ul>
  * <li>[true] if a and b are both null.
  * <li>[true] if a and b are both non-null and they are
@@ -39,27 +39,27 @@ bool equal(Object a, Object b) => a == b || (a != null && a == b);
  * Specification by example:
  * <pre>
  *   // Returns "ClassName{}"
- *   toStringHelper("ClassName")
+ *   toStringHelper(this.runtimeType)
  *    .toString();
  * </pre>
  *
  * <pre>
  *   // Returns "ClassName{x=1}"
- *   toStringHelper("ClassName"
+ *   toStringHelper(this.runtimeType)
  *    .add("x", 1)
  *    .toString();
  * </pre>
  * 
  * <pre>
  *   // Returns "MyObject{x=1}"
- *   toStringHelper("MyObject")
+ *   toStringHelper(this.runtimeType)
  *    .add("x", 1)
  *    .toString();
  * </pre>
  * 
  * <pre>
  *   // Returns "ClassName{x=1, y=foo}"
- *   toStringHelper("ClassName")
+ *   toStringHelper(this.runtimeType)
  *    .add("x", 1)
  *    .add("y", "foo")
  *    .toString();
@@ -67,15 +67,15 @@ bool equal(Object a, Object b) => a == b || (a != null && a == b);
  * 
  * <pre>
  *   // Returns "ClassName{x=1}"
- *   toStringHelper("ClassName")
+ *   toStringHelper(this.runtimeType)
  *    .omitNullValues().add("x", 1)
  *    .add("y", null)
  *    .toString();
  * </pre>
  * 
- * [className] the object class name
+ * [runtimeType] the object type
  */
-ToStringHelper toStringHelper(String className) => new ToStringHelper(className);
+ToStringHelper toStringHelper(Type runtimeType) => new ToStringHelper(runtimeType);
   
 /**
  * Support class for [toStringHelper].
@@ -83,14 +83,14 @@ ToStringHelper toStringHelper(String className) => new ToStringHelper(className)
  */
 class ToStringHelper {
 
-  final String className;
+  final Type runtimeType;
   final LinkedHashMap<String, dynamic> _valueHolders;
   bool _omitNullValues = false;
 
   /**
-   * Use [toStringHelper(className)] method instead of this constructor.
+   * Use [toStringHelper(runtimeType)] static method instead of this constructor.
    */
-  ToStringHelper(this.className) : _valueHolders = new LinkedHashMap();
+  ToStringHelper(this.runtimeType) : _valueHolders = new LinkedHashMap();
 
   /**
    * Configures the [ToStringHelper] so toString() will ignore
@@ -111,7 +111,7 @@ class ToStringHelper {
   }
   
   /**
-   * Returns a string in the format specified by [toStringHelper(className)].
+   * Returns a string in the format specified by [toStringHelper(runtimeType)].
   *
    * <p>After calling this method, you can keep adding more properties to later
    * call toString() again and get a more complete representation of the
@@ -120,7 +120,7 @@ class ToStringHelper {
    * properties (multiple name/value pairs with the same name can be added).
    */  
   String toString(){
-    var buffer = new StringBuffer("$className{");
+    var buffer = new StringBuffer("$runtimeType{");
     var first = true;
     _valueHolders.forEach((String key, value) {
       if(!_omitNullValues || (_omitNullValues && value != null)){
