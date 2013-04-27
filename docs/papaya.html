@@ -1,0 +1,125 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>papaya Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="styles.css">
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="favicon.ico">
+        
+        </head>
+        <body data-library="papaya">
+        <div class="page">
+        <div class="header">
+          <a href="index.html"><div class="logo"></div></a>
+          <a href="index.html">Dart Documentation</a>
+         &rsaquo; <a href="papaya.html">papaya</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+</div>
+<div class="content">
+<h2><strong>papaya</strong> library</h2>
+<div>
+<h3>Functions</h3>
+<div class="method"><h4 id="toStringHelper">
+<button class="show-code">Code</button>
+<a href="papaya/ToStringHelper.html">ToStringHelper</a> <strong>toStringHelper</strong>(String className) <a class="anchor-link" href="#toStringHelper"
+              title="Permalink to toStringHelper">#</a></h4>
+<div class="doc">
+<p>Creates an instance of <a class="crossref" href="papaya/ToStringHelper.html">ToStringHelper</a>.</p><p>This is helpful for implementing toString().
+Specification by example:
+<pre>
+  // Returns "ClassName{}"
+  toStringHelper("ClassName")
+   .toString();
+</pre><pre>
+  // Returns "ClassName{x=1}"
+  toStringHelper("ClassName"
+   .add("x", 1)
+   .toString();
+</pre><pre>
+  // Returns "MyObject{x=1}"
+  toStringHelper("MyObject")
+   .add("x", 1)
+   .toString();
+</pre><pre>
+  // Returns "ClassName{x=1, y=foo}"
+  toStringHelper("ClassName")
+   .add("x", 1)
+   .add("y", "foo")
+   .toString();
+</pre><pre>
+  // Returns "ClassName{x=1}"
+  toStringHelper("ClassName")
+   .omitNullValues().add("x", 1)
+   .add("y", null)
+   .toString();
+</pre>
+<p>
+<span class="param">className</span> the object class name</p>
+<pre class="source">
+ToStringHelper toStringHelper(String className) =&gt; new ToStringHelper(className);
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="equal">
+<button class="show-code">Code</button>
+bool <strong>equal</strong>(Object a, Object b) <a class="anchor-link" href="#equal"
+              title="Permalink to equal">#</a></h4>
+<div class="doc">
+<p>Determines whether two possibly-null objects are equal. Returns:</p><ul>
+<li>[true] if a and b are both null.
+<li>[true] if a and b are both non-null and they are
+    equal according to ==
+<li>[false] in all other situations.
+</ul><p>This assumes that any non-null objects passed to this function conform
+to the == contract.
+<pre class="source">
+bool equal(Object a, Object b) =&gt; a == b || (a != null &amp;&amp; a == b);
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="hashcode">
+<button class="show-code">Code</button>
+int <strong>hashcode</strong>(List&lt;Object&gt; fields) <a class="anchor-link" href="#hashcode"
+              title="Permalink to hashcode">#</a></h4>
+<div class="doc">
+<p>Generates a hash code for multiple values.</p><p>This is useful for implementing [Object#hashCode()]. For example,
+in an object that has three properties : x, y, z, one could write:
+<pre>
+int hashCode() => hashcode([x, y, z]);
+</pre><b>Warning</b>: When a single object is supplied, the returned hash code
+does not equal the hash code of that object.
+<pre class="source">
+int hashcode(List&lt;Object&gt; fields) =&gt;
+     (fields == null || fields.isEmpty) ? 0 : fields.fold(1, (int previous, Object e) =&gt; 31* previous + (e == null ? 0 : e.hashCode));
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Classes</h3>
+          <div class="type">
+          <h4>
+            <a href="papaya/ToStringHelper.html"><strong>ToStringHelper</strong></a>
+          </h4>
+          </div>
+          
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        <div class="footer">
+          <div>This page was generated at 2013-04-27 19:07:27.276</div>
+        </div>
+        <script async src="client-live-nav.js"></script>
+        </body></html>
+        

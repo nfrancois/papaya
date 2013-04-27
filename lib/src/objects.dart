@@ -5,7 +5,7 @@ part of papaya;
 /**
  * Generates a hash code for multiple values.
 *
- * <p>This is useful for implementing {@link Object#hashCode()}. For example,
+ * <p>This is useful for implementing [Object#hashCode()]. For example,
  * in an object that has three properties : x, y, z, one could write:
  * <pre>
  * int hashCode() => hashcode([x, y, z]);
@@ -21,8 +21,8 @@ int hashcode(List<Object> fields) =>
  * Determines whether two possibly-null objects are equal. Returns:
 *
  * <ul>
- * <li>[true] if {@code a} and {@code b} are both null.
- * <li>[true] if {@code a} and {@code b} are both non-null and they are
+ * <li>[true] if a and b are both null.
+ * <li>[true] if a and b are both non-null and they are
  *     equal according to ==
  * <li>[false] in all other situations.
  * </ul>
@@ -36,38 +36,44 @@ bool equal(Object a, Object b) => a == b || (a != null && a == b);
  * Creates an instance of [ToStringHelper].
  *
  * <p>This is helpful for implementing toString().
- * Specification by example: <pre>   {@code
+ * Specification by example:
+ * <pre>
  *   // Returns "ClassName{}"
  *   toStringHelper("ClassName")
- *       .toString();
+ *    .toString();
+ * </pre>
  *
+ * <pre>
  *   // Returns "ClassName{x=1}"
- *   toStringHelper("ClassName")
- *       .add("x", 1)
- *       .toString();
- *
+ *   toStringHelper("ClassName"
+ *    .add("x", 1)
+ *    .toString();
+ * </pre>
+ * 
+ * <pre>
  *   // Returns "MyObject{x=1}"
  *   toStringHelper("MyObject")
- *       .add("x", 1)
- *       .toString();
- *
+ *    .add("x", 1)
+ *    .toString();
+ * </pre>
+ * 
+ * <pre>
  *   // Returns "ClassName{x=1, y=foo}"
- *   toStringHelper("MyObject")
- *       .add("x", 1)
- *       .add("y", "foo")
- *       .toString();
- *   }}
- *
+ *   toStringHelper("ClassName")
+ *    .add("x", 1)
+ *    .add("y", "foo")
+ *    .toString();
+ * </pre>
+ * 
+ * <pre>
  *   // Returns "ClassName{x=1}"
  *   toStringHelper("ClassName")
- *       .omitNullValues()
- *       .add("x", 1)
- *       .add("y", null)
- *       .toString();
- *   }}</pre>
-*
-*
- * @param objectName the object class name
+ *    .omitNullValues().add("x", 1)
+ *    .add("y", null)
+ *    .toString();
+ * </pre>
+ * 
+ * [className] the object class name
  */
 ToStringHelper toStringHelper(String className) => new ToStringHelper(className);
   
@@ -81,6 +87,9 @@ class ToStringHelper {
   final LinkedHashMap<String, dynamic> _valueHolders;
   bool _omitNullValues = false;
 
+  /**
+   * Use [toStringHelper(className)] method instead of this constructor.
+   */
   ToStringHelper(this.className) : _valueHolders = new LinkedHashMap();
 
   /**
