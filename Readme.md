@@ -60,7 +60,7 @@ class Person {
   
   int get hashCode => hashcode([name, age]);
   
-  bool operator==(other) => equal(name, other.name) && equal(age, other.name);
+  bool operator==(other) => equal(name, other.name) && equal(age, other.age);
   
   String toString() => toStringHelper(this.runtimeType).add("name", name).add("age", age).toString();
   
