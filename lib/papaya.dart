@@ -1,4 +1,4 @@
-library dart_commons;
+library papaya;
 
 //Copyright (C) 2013 Nicolas François. All Rights Reserved.
 
