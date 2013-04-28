@@ -4,16 +4,19 @@ main() {
   var john = new Person("John", 25);
   var unknown = new Person(null, 37);
   
-  // hashCode
+  // 1495571744
   print(john.hashCode);
+  // 998
   print(unknown.hashCode);
  
-  // toString
-  print(john.toString());
-  print(unknown.toString());
+  // Person{name=John, age=25}
+  print(john);
+  // Person{name=null, age=37}
+  print(unknown);
+  // Person{age=37}
   print(unknown.alternativeToString());
   
-  // equals
+  // false
   print(john == unknown);
 }
 

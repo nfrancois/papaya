@@ -38,18 +38,23 @@ main() {
   var john = new Person("John", 25);
   var unknown = new Person(null, 37);
   
-  // hashCode
+  // 1495571744
   print(john.hashCode);
+  // 998
   print(unknown.hashCode);
  
-  // toString
-  print(john.toString());
-  print(unknown.toString());
+  // Person{name=John, age=25}
+  print(john);
+  // Person{name=null, age=37}
+  print(unknown);
+  // Person{age=37}
   print(unknown.alternativeToString());
   
-  // equals
+  // false
   print(john == unknown);
 }
+
+
 
 class Person {
   
@@ -60,31 +65,16 @@ class Person {
   
   int get hashCode => hashcode([name, age]);
   
-  bool operator==(other) => equal(name, other.name) && equal(age, other.age);
+  bool operator==(other) => 
+  	equal(name, other.name) && equal(age, other.age);
   
-  String toString() => toStringHelper(this.runtimeType).add("name", name).add("age", age).toString();
+  String toString() => 
+  	toStringHelper(this.runtimeType).add("name", name)
+  	.add("age", age).toString();
   
   String alternativeToString() => 
-    toStringHelper(this.runtimeType).omitNullValues().add("name", name).add("age", age).toString();
+    toStringHelper(this.runtimeType).omitNullValues()
+    .add("name", name).add("age", age).toString();
   
 }
 ```
-
-it print :
-
-```
-1495571744
-998
-Person{name=John, age=25}
-Person{name=null, age=37}
-Person{age=37}
-false
-```
-
-
-
-
-
-
-
-
