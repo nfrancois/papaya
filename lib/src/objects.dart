@@ -15,7 +15,10 @@ part of papaya;
  * does not equal the hash code of that object.
  */
 int hashcode(List<Object> fields) =>
-      (fields == null || fields.isEmpty) ? 0 : fields.fold(1, (int previous, Object e) => 31* previous + (e == null ? 0 : e.hashCode));
+      (fields == null || fields.isEmpty) ? 0 : fields.fold(1, (int previous, Object e) {
+        var hash = new int32.fromInt(31* previous) + new int32.fromInt((e == null ? 0 : e.hashCode));
+        return hash.toInt();
+      });
   
 /**
  * Determines whether two possibly-null objects are equal. Returns:
