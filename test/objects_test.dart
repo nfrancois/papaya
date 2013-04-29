@@ -18,7 +18,7 @@ main(){
       expect(hashcode(["Hello", "world"]), hashcode(["Hello", "world"]));
     });  
     test('Should have specific hascode', () {
-      expect(hashcode(["Hello", "world"]), equals(182043961));
+      expect(hashcode(["Hello", "world"]), equals(182059337));
     });
     test('Null is a field value', () {
       expect(hashcode([1, 2, null]),  isNot(equals(hashcode([1, 2]))));

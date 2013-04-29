@@ -1,6 +1,9 @@
 part of papaya;
 
+
 //Copyright (C) 2013 Nicolas François. All Rights Reserved.
+
+const int _MASK = 0xFFFFFFFF;
 
 /**
  * Generates a hash code for multiple values.
@@ -15,10 +18,10 @@ part of papaya;
  * does not equal the hash code of that object.
  */
 int hashcode(List<Object> fields) =>
-      (fields == null || fields.isEmpty) ? 0 : fields.fold(1, (int previous, Object e) {
-        var hash = new int32.fromInt(31* previous) + new int32.fromInt((e == null ? 0 : e.hashCode));
-        return hash.toInt();
-      });
+      (fields == null || fields.isEmpty) ? 0 : fields.fold(17, (int previous, Object e) =>
+        // i*31 = (i<<5) - i
+        ((previous << 5) -  previous + (e == null ? 0 : e.hashCode)) & _MASK
+      );
   
 /**
  * Determines whether two possibly-null objects are equal. Returns:

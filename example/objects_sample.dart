@@ -4,9 +4,9 @@ main() {
   var john = new Person("John", 25);
   var unknown = new Person(null, 37);
   
-  // 1495571744
+  // 1495587120
   print(john.hashCode);
-  // 998
+  // 16374
   print(unknown.hashCode);
  
   // Person{name=John, age=25}
